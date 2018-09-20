@@ -2,7 +2,7 @@ package com.algorithm.datastructures;
 
 import java.util.LinkedList;;
 
-public class GraphsSolution {
+public class PrintGraphs {
 
 	// A user define class to represent a graph.
 	// A graph is an array of adjacency lists.

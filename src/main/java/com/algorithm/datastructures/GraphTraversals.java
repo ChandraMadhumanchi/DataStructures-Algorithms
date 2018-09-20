@@ -11,13 +11,13 @@ import java.util.LinkedList;
 
 // This class represent a directed graph using adjacency list
 // representation
-public class Graph {
+public class GraphTraversals {
 	
 	private int V; 	// No. of vertices
 	private LinkedList<Integer> adj[];  // Adjacency Lists
 	
 	// constructor
-	public Graph(int v){
+	public GraphTraversals(int v){
 		this.V = v;
 		adj = new LinkedList[v];
 		for (int i = 0; i < v; i++)
@@ -68,11 +68,11 @@ public class Graph {
 		System.out.print(v+ " ");
 		
 		// Recur for all the vertices adjacent to this vertex
-		Iterator<Integer> i = adj[v].listIterator();
-		while(i.hasNext()){
-			int n = i.next();
-			if(! visited[n])
-				DFSUtil(n,visited);
+		Iterator<Integer> it = adj[v].listIterator();
+		while(it.hasNext()){
+			int i = it.next();
+			if(! visited[i])
+				DFSUtil(i,visited);
 		}
 	}
 	void DFS() {
@@ -89,7 +89,7 @@ public class Graph {
 	
 	public static void main(String[] args) {
 
-		Graph g = new Graph(4);
+		GraphTraversals g = new GraphTraversals(4);
 		g.addEdge(0, 1);
 		g.addEdge(0, 2);
 		g.addEdge(1, 2);
@@ -99,6 +99,8 @@ public class Graph {
 		
 		System.out.println("Following is Breadth First Traversal starting from vertex 2");
 		g.BFS(2);
+		
+		System.out.println("");
 		
 		 System.out.println("Following is Depth First Traversal");
 	     g.DFS();
