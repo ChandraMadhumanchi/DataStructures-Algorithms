@@ -2,7 +2,7 @@ package codingcrackingInterview;
 
 public class CoinChangeRecursion {
 
-	public static int total(int n,int[] v, int i){
+	public static int totalRec(int n,int[] v, int i){
 		
 		if( n < 0){
 			return 0;
@@ -15,14 +15,14 @@ public class CoinChangeRecursion {
 		if(i == v.length && n> 0){
 			return 0;
 		}
-		return total(n-v[i],v,i) + total(n,v,i+1);
+		return totalRec(n-v[i],v,i) + totalRec(n,v,i+1);
 	}
 	
-	public static int dynamic(int[] v, int amount) {
-		int[][] solution = new int[v.length + 1][amount + 1];
+	public static int dynamic(int[] c, int amount) {
+		int[][] solution = new int[c.length + 1][amount + 1];
 
 		// if amount=0 then just return empty set to make the change
-		for (int i = 0; i <= v.length; i++) {
+		for (int i = 0; i <= c.length; i++) {
 			solution[i][0] = 1;
 		}
 
@@ -33,29 +33,29 @@ public class CoinChangeRecursion {
 
 		// now fill rest of the matrix.
 
-		for (int i = 1; i <= v.length; i++) {
+		for (int i = 1; i <= c.length; i++) {
 			for (int j = 1; j <= amount; j++) {
 				// check if the coin value is less than the amount needed
-				if (v[i - 1] <= j) {
+				if (c[i - 1] <= j) {
 					// reduce the amount by coin value and
 					// use the subproblem solution (amount-v[i]) and
 					// add the solution from the top to it
 					solution[i][j] = solution[i - 1][j]
-							+ solution[i][j - v[i - 1]];
+							+ solution[i][j - c[i - 1]];
 				} else {
 					// just copy the value from the top
 					solution[i][j] = solution[i - 1][j];
 				}
 			}
 		}
-		return solution[v.length][amount];
+		return solution[c.length][amount];
 	}
 	
 	public static void main(String[] args) {
 
 		int amount = 5;
 		int[] v = {1,2,3};
-		System.out.println("By Recursion: " + total(amount, v, 0));
+		System.out.println("By Recursion: " + totalRec(amount, v, 0));
 		
 		System.out.println("By Dynamic Programming " + dynamic(v, amount));
 	}

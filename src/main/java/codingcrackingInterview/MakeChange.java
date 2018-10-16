@@ -9,7 +9,8 @@ public class MakeChange {
 		// Make change (27 - {25,10,5,13})
 		int[] coins = new int[] {1,2,3}; 
 		int money = 4;
-		System.out.println(" "+ makeChange(coins, money,0, new HashMap<String, Long>()));
+		System.out.println("memorization :  "+ makeChange(coins, money,0, new HashMap<String, Long>()));
+		System.out.println("recursion: "+ makeChangeRec(coins, money,0));
 	}
 	
 	public static long makeChangeRec(int[] coins, int money,int index){

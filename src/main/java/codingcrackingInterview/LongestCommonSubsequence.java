@@ -49,6 +49,7 @@ public class LongestCommonSubsequence {
 			}
 			x = solution[a][b];
 		}
+		
 		System.out.println(answer);
 		
 		for (int i = 0; i <= A.length; i++) {
