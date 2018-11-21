@@ -2,6 +2,8 @@ package codingcrackingInterview;
 
 public class LongestCommonSubsequence {
 
+	// https://www.youtube.com/watch?v=NnD96abizww
+	
 	public static int find(char[] A, char[] B) {
 		int[][] LCS = new int[A.length + 1][B.length + 1];
 		String[][] solution = new String[A.length + 1][B.length + 1];
@@ -11,7 +13,7 @@ public class LongestCommonSubsequence {
 			solution[0][i] = "0";
 		}
 
-		// if B is null then LCS of A, B =0
+		// if B is null then LCS of A, B = 0
 		for (int i = 0; i <= A.length; i++) {
 			LCS[i][0] = 0;
 			solution[i][0] = "0";

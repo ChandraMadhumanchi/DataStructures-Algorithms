@@ -22,7 +22,9 @@ public class IntegerToWord {
 	}
  
 	public static int evalRPN(String[] tokens) {
+		
 		int returnValue = 0;
+		
 		String operators = "+-*/";
  
 		Stack<String> stack = new Stack<String>();

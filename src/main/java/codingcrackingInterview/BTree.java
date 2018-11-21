@@ -29,7 +29,7 @@ public class BTree {
 
 		// traverse the tree
 		while (curr != null || s.size() > 0) {
-			// reach rhe left most node of the current node
+			// reach the left most node of the current node
 			while (curr != null) {
 				s.push(curr);
 				curr = curr.left;
@@ -103,6 +103,7 @@ public class BTree {
 			}
 			
 		}
+		
 		while(!s2.isEmpty()){
 			Node temp = s2.pop();
 			System.out.print(" "+ temp.data);

@@ -4,6 +4,7 @@ import java.util.Arrays;
 
 public class SortingAlgorithms {
 
+	
 	public static void quicksort(int[] array) {
 		quicksort(array, 0, array.length - 1);
 	}
@@ -38,27 +39,6 @@ public class SortingAlgorithms {
 		
 	
 	}
-	
-/*
-	public static int partition(int[] array, int left, int right, int pivot) {
-		while (left <= right) {
-			while (array[left] < pivot) {
-				left++;
-			}
-			while (array[right] > pivot) {
-				right--;
-			}
-
-			if (left <= right) {
-				swap(array, left, right);
-				left++;
-				right--;
-			}
-		}
-		return left;
-	}
-
-	*/
 	
 	public static void swap(int[] array, int left, int right) {
 		int temp = array[left];

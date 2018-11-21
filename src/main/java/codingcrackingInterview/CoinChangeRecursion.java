@@ -1,21 +1,27 @@
 package codingcrackingInterview;
 
 public class CoinChangeRecursion {
-
-	public static int totalRec(int n,int[] v, int i){
+// totalRec(amount,coins,eachcoin)
+// number of ways to make that amount required conins
+// Given a total and coins of certain denominations find number of ways total
+// can be formed from coins assuming infinity supply of coins
+	public static int totalRec(int amount,int[] coin, int runningAmount){
 		
-		if( n < 0){
+		if( amount < 0){
 			return 0;
 		}
-		if(n==0){
+		
+		if(amount == 0){
 			return 1;
 		}
+		
 		// means coins over and n > 0 so no solution
 		
-		if(i == v.length && n> 0){
+		if(runningAmount == coin.length && amount > 0){
 			return 0;
 		}
-		return totalRec(n-v[i],v,i) + totalRec(n,v,i+1);
+		
+		return totalRec(amount - coin[runningAmount], coin,runningAmount) + totalRec(amount,coin,runningAmount+1);
 	}
 	
 	public static int dynamic(int[] c, int amount) {
@@ -53,8 +59,10 @@ public class CoinChangeRecursion {
 	
 	public static void main(String[] args) {
 
-		int amount = 5;
-		int[] v = {1,2,3};
+		int amount = 8;
+		int[] v = {1,5,10};
+		
+		
 		System.out.println("By Recursion: " + totalRec(amount, v, 0));
 		
 		System.out.println("By Dynamic Programming " + dynamic(v, amount));

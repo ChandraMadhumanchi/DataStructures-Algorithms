@@ -23,10 +23,30 @@ public class MaximumSubArrayDP {
 
         return result;
     }
+    
+    public static int maxsum(int[] arr) {
+    	
+    	int sum = 0; int temp = 0;
+    	for(int i=0; i< arr.length; i++){
+    		
+    		temp += arr[i];
+    		
+    		if(sum < temp)
+    			sum += temp;
+    		
+    		
+    		if(temp < 0)
+    			temp = 0;
+
+    	}
+    	return sum;
+    }
 
     public static void main(String[] args) {
         int arrA[] = { 1, 2, -3, -4, 2, 7, -2, 3 };
         MaximumSubArrayDP i = new MaximumSubArrayDP();
         System.out.println("Maximum subarray is  " + i.solve(arrA));
+        
+        System.out.println("recursive Maximum sum is  " + maxsum(arrA));
     }
 }
